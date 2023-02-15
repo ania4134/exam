@@ -1,0 +1,19 @@
+a)
+SELECT title
+FROM books
+WHERE total_pages>=1500
+
+b)
+SELECT publishers.name, COUNT(book_id) AS IloscKsiazek
+FROM publishers, books
+WHERE publishers.publisher_id = books.publisher_id
+GROUP BY publishers.name
+ORDER BY IloscKsiazek DESC
+
+
+c)
+SELECT authors.author_id, COUNT(book_id) AS IloscKsiazek
+FROM authors,book_authors
+WHERE IloscKsiazek>6
+AND authors.author_id=book_authors.author_id
+GROUP BY authors.author_id
